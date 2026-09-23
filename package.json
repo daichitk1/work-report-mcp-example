@@ -10,6 +10,8 @@
   "scripts": {
     "dev:mcp-server": "pnpm --filter @work-report-mcp/api dev",
     "dev:mcp-app": "pnpm --filter @work-report-mcp/web dev",
+    "docs:dev": "vitepress dev docs",
+    "docs:build": "vitepress build docs",
     "format": "prettier --write .",
     "format:check": "prettier --check .",
     "lint": "markdownlint-cli2",
@@ -20,7 +22,7 @@
     "test:visual": "pnpm --filter @work-report-mcp/web test:visual",
     "build": "pnpm --filter @work-report-mcp/contracts --filter @work-report-mcp/api --filter @work-report-mcp/web --if-present build",
     "check:fast": "pnpm lint && pnpm format:check && pnpm typecheck && pnpm test:unit && pnpm test:repo",
-    "check": "pnpm check:fast && pnpm build"
+    "check": "pnpm check:fast && pnpm build && pnpm docs:build"
   },
   "dependencies": {
     "@work-report-mcp/api": "workspace:*"
@@ -29,6 +31,7 @@
     "@types/node": "22.20.1",
     "markdownlint-cli2": "0.23.2",
     "prettier": "3.9.6",
-    "typescript": "7.0.2"
+    "typescript": "7.0.2",
+    "vitepress": "1.6.4"
   }
 }

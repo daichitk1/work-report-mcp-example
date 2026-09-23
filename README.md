@@ -72,7 +72,7 @@ packages/
 api/
   index.ts         Vercel Functionの入口
 tests/             リポジトリ横断の構成・依存方向の検査
-docs/              セットアップ・コードガイド・セキュリティ
+docs/              要件・設計・セットアップ・コードガイド・セキュリティ
 ```
 
 **何を直すとき、どのファイルを開くかは [コードガイド](docs/code-guide.md) にまとめています。**
@@ -156,10 +156,15 @@ GitHub Releaseの作成は必須ではありません。
 
 ## ドキュメント
 
+- [ドキュメントサイト](https://daichitk1.github.io/work-report-mcp-example/)（GitHub Pagesを有効化・デプロイした後に閲覧可能）
+- [要件定義](docs/requirements.md)
+- [設計](docs/design.md)
 - [Code Guide](docs/code-guide.md)
 - [セットアップ](docs/setup.md)
 - [Security Boundaries](docs/security/boundaries.md)
 - [Security Policy](SECURITY.md)
+
+ドキュメントサイトは `pnpm docs:build` で生成し、main更新時にGitHub ActionsからPagesへ配信します。リポジトリの **Settings → Pages → Build and deployment → Source** は **GitHub Actions** を選択してください。Pagesは仕様文書用で、MCP Serverの配信先ではありません。
 
 ## 対象外
 
