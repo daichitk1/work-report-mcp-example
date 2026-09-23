@@ -127,7 +127,7 @@ Security eventはallowlistされたmetadataだけを記録する。
 - GitHub Actionsはcommit SHAへpinする
 - workflow permissionは最小化する
 - pnpm package updateは互換性とテスト結果を確認してから取り込む
-- GitHub Actions updateはDependabotで作成する
+- GitHub Actions updateは参照先のcommitと変更内容を確認してから取り込む
 - private repositoryでは追加依存なしのRepository SASTで高リスクなTypeScript / JavaScript sinkを継続検査する
 - Public化後はCodeQLを追加レイヤーとしてJavaScript / TypeScript解析に使う
 - untrusted PR codeへsecretを渡さない
