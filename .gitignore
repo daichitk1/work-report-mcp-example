@@ -48,3 +48,4 @@ Thumbs.db
 
 # Deployment metadata
 .vercel/
+docs/.vitepress/cache/

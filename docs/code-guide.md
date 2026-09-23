@@ -2,6 +2,7 @@
 
 「何を変更したいか」から、開くファイルを見つけるためのガイドです。
 コードを追う順番は本ガイドの「コードを読む順番」にまとめています。セットアップ手順と実環境での確認範囲は [セットアップ](./setup.md) を参照してください。
+コードへのリンクはGitHub上のリポジトリを開きます。リポジトリが非公開の間は閲覧権限が必要です。
 
 ## リポジトリ全体
 
@@ -177,34 +178,34 @@ APIのファイル追加・削除時は上のAPIツリーも更新してくだ�
 
 データの意味を先に理解し、それを公開・検証・表示する部品へ進む学習順です。実行時の呼び出し順とは異なります。各ファイルの先頭コメントで前後の関係を確認し、重要な関数のコメントと処理を照らし合わせてください。
 
-| 順序 | 場所                                                                                                  | 読み取る内容                                                         |
-| ---- | ----------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------- |
-| 0    | [README.md](../README.md)                                                                             | アプリの目的と全体像                                                 |
-| 1    | [packages/contracts/src/work-report.ts](../packages/contracts/src/work-report.ts)                     | Zod、実行時検証、6つの項目、IDの参照関係                             |
-| 2    | [apps/api/src/work-report/tool-definition.ts](../apps/api/src/work-report/tool-definition.ts)         | LLMへ公開する説明、入出力Schema、UI Resourceとの対応                 |
-| 3    | [apps/api/src/work-report/handle-tool-call.ts](../apps/api/src/work-report/handle-tool-call.ts)       | unknownからサイズ・Schema・秘密情報を検証してstructuredContentを返す |
-| 4    | [apps/api/src/work-report/register-tool.ts](../apps/api/src/work-report/register-tool.ts)             | Tool定義とHandlerをServerへ登録する                                  |
-| 5    | [apps/api/src/mcp/server.ts](../apps/api/src/mcp/server.ts)                                           | ToolとResourceを持つMCP Serverの組立                                 |
-| 6    | [apps/api/src/mcp/handle-http-request.ts](../apps/api/src/mcp/handle-http-request.ts)                 | ServerとTransportの違い、connectとhandleRequestの役割                |
-| 7    | [apps/api/src/app.ts](../apps/api/src/app.ts)                                                         | Honoの入口、サイズ制限、OAuth、MCPへの委譲                           |
-| 8    | 下表の `apps/api/src/auth/` 5ファイル                                                                 | 認可判定、JWT検証、HTTP変換、組立、設定                              |
-| 9    | [apps/web/src/mcp-app/host/work-report-host.ts](../apps/web/src/mcp-app/host/work-report-host.ts)     | Host接続、toolresult、メッセージ送信・リンク操作の依頼               |
-| 10   | [apps/web/src/mcp-app/state/useWorkReportHost.ts](../apps/web/src/mcp-app/state/useWorkReportHost.ts) | unknownの再検証、判別可能なunion、React stateへの変換                |
-| 11   | [apps/web/src/mcp-app/WorkReportApp.tsx](../apps/web/src/mcp-app/WorkReportApp.tsx)                   | 状態ごとの表示と、再試行を案内する条件                               |
-| 12   | [apps/web/src/mcp-app/view/WorkReportView.tsx](../apps/web/src/mcp-app/view/WorkReportView.tsx)       | 各表示componentの担当とDesktop / Mobileの切替                        |
-| 13   | 各実装に対応する `tests/`                                                                             | 保証する境界と、防ぎたい不具合                                       |
+| 順序 | 場所                                                                                                                                                              | 読み取る内容                                                         |
+| ---- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------- |
+| 0    | [README.md](https://github.com/daichitk1/work-report-mcp-example/blob/main/README.md)                                                                             | アプリの目的と全体像                                                 |
+| 1    | [packages/contracts/src/work-report.ts](https://github.com/daichitk1/work-report-mcp-example/blob/main/packages/contracts/src/work-report.ts)                     | Zod、実行時検証、6つの項目、IDの参照関係                             |
+| 2    | [apps/api/src/work-report/tool-definition.ts](https://github.com/daichitk1/work-report-mcp-example/blob/main/apps/api/src/work-report/tool-definition.ts)         | LLMへ公開する説明、入出力Schema、UI Resourceとの対応                 |
+| 3    | [apps/api/src/work-report/handle-tool-call.ts](https://github.com/daichitk1/work-report-mcp-example/blob/main/apps/api/src/work-report/handle-tool-call.ts)       | unknownからサイズ・Schema・秘密情報を検証してstructuredContentを返す |
+| 4    | [apps/api/src/work-report/register-tool.ts](https://github.com/daichitk1/work-report-mcp-example/blob/main/apps/api/src/work-report/register-tool.ts)             | Tool定義とHandlerをServerへ登録する                                  |
+| 5    | [apps/api/src/mcp/server.ts](https://github.com/daichitk1/work-report-mcp-example/blob/main/apps/api/src/mcp/server.ts)                                           | ToolとResourceを持つMCP Serverの組立                                 |
+| 6    | [apps/api/src/mcp/handle-http-request.ts](https://github.com/daichitk1/work-report-mcp-example/blob/main/apps/api/src/mcp/handle-http-request.ts)                 | ServerとTransportの違い、connectとhandleRequestの役割                |
+| 7    | [apps/api/src/app.ts](https://github.com/daichitk1/work-report-mcp-example/blob/main/apps/api/src/app.ts)                                                         | Honoの入口、サイズ制限、OAuth、MCPへの委譲                           |
+| 8    | 下表の `apps/api/src/auth/` 5ファイル                                                                                                                             | 認可判定、JWT検証、HTTP変換、組立、設定                              |
+| 9    | [apps/web/src/mcp-app/host/work-report-host.ts](https://github.com/daichitk1/work-report-mcp-example/blob/main/apps/web/src/mcp-app/host/work-report-host.ts)     | Host接続、toolresult、メッセージ送信・リンク操作の依頼               |
+| 10   | [apps/web/src/mcp-app/state/useWorkReportHost.ts](https://github.com/daichitk1/work-report-mcp-example/blob/main/apps/web/src/mcp-app/state/useWorkReportHost.ts) | unknownの再検証、判別可能なunion、React stateへの変換                |
+| 11   | [apps/web/src/mcp-app/WorkReportApp.tsx](https://github.com/daichitk1/work-report-mcp-example/blob/main/apps/web/src/mcp-app/WorkReportApp.tsx)                   | 状態ごとの表示と、再試行を案内する条件                               |
+| 12   | [apps/web/src/mcp-app/view/WorkReportView.tsx](https://github.com/daichitk1/work-report-mcp-example/blob/main/apps/web/src/mcp-app/view/WorkReportView.tsx)       | 各表示componentの担当とDesktop / Mobileの切替                        |
+| 13   | 各実装に対応する `tests/`                                                                                                                                         | 保証する境界と、防ぎたい不具合                                       |
 
 OAuthは次の順に読みます。認可の判断を先に理解し、最後に設定と組立の関係を確認します。
 
-| 順序 | ファイル                                                                | 読み取る内容                                            |
-| ---- | ----------------------------------------------------------------------- | ------------------------------------------------------- |
-| 8-1  | [authorization.ts](../apps/api/src/auth/authorization.ts)               | Bearer取得、検証関数の呼び出し、必要scopeの確認         |
-| 8-2  | [token-verifier.ts](../apps/api/src/auth/token-verifier.ts)             | 署名・issuer・audience・期限とJWKS、検証後のscope       |
-| 8-3  | [oauth-http.ts](../apps/api/src/auth/oauth-http.ts)                     | 判定を401 / 403等へ変換し、認可先をClientへ知らせる     |
-| 8-4  | [create-auth-handlers.ts](../apps/api/src/auth/create-auth-handlers.ts) | 共通resolverによる組立と、設定不足時に503で拒否する理由 |
-| 8-5  | [config.ts](../apps/api/src/auth/config.ts)                             | 環境変数の読込、URLの正規化、audienceとresourceの一致   |
+| 順序 | ファイル                                                                                                                            | 読み取る内容                                            |
+| ---- | ----------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------- |
+| 8-1  | [authorization.ts](https://github.com/daichitk1/work-report-mcp-example/blob/main/apps/api/src/auth/authorization.ts)               | Bearer取得、検証関数の呼び出し、必要scopeの確認         |
+| 8-2  | [token-verifier.ts](https://github.com/daichitk1/work-report-mcp-example/blob/main/apps/api/src/auth/token-verifier.ts)             | 署名・issuer・audience・期限とJWKS、検証後のscope       |
+| 8-3  | [oauth-http.ts](https://github.com/daichitk1/work-report-mcp-example/blob/main/apps/api/src/auth/oauth-http.ts)                     | 判定を401 / 403等へ変換し、認可先をClientへ知らせる     |
+| 8-4  | [create-auth-handlers.ts](https://github.com/daichitk1/work-report-mcp-example/blob/main/apps/api/src/auth/create-auth-handlers.ts) | 共通resolverによる組立と、設定不足時に503で拒否する理由 |
+| 8-5  | [config.ts](https://github.com/daichitk1/work-report-mcp-example/blob/main/apps/api/src/auth/config.ts)                             | 環境変数の読込、URLの正規化、audienceとresourceの一致   |
 
-手順5の補足として [ui-resource.ts](../apps/api/src/work-report/ui-resource.ts) を読むと、Toolに関連付けたHTMLの配信も確認できます。手順12では、`WorkReportView.tsx` の先頭にあるcomponentの案内から、見たい区画の実装へ進めます。
+手順5の補足として [ui-resource.ts](https://github.com/daichitk1/work-report-mcp-example/blob/main/apps/api/src/work-report/ui-resource.ts) を読むと、Toolに関連付けたHTMLの配信も確認できます。手順12では、`WorkReportView.tsx` の先頭にあるcomponentの案内から、見たい区画の実装へ進めます。
 
 Tool定義の `inputSchema` / `outputSchema` はContractの `shape` をSDKへ公開します。レポート全体に対する `superRefine` のID重複・参照先検査は、HandlerとUIが完成した `workReportSchema` を検証するときに実行されます。TypeScriptの型が付くことと、通信で届いた値を実行時に検証することは別です。
 
@@ -230,14 +231,14 @@ Hostへ送る操作は、ユーザーの次の依頼につなぐものです。�
 
 対応するテストの先頭コメントに、対象実装・保証内容・防ぐ不具合を記載しています。
 
-| 種類                  | 主に確認すること                                               | 読む例                                                                                                                                            |
-| --------------------- | -------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------- |
-| unit（単体）          | 関数やSchemaを直接呼び、条件と返却値を確認する                 | [Handler](../apps/api/tests/unit/work-report/handle-tool-call.test.ts)、[Contract](../packages/contracts/tests/work-report.test.ts)               |
-| integration（結合）   | HTTP・認可・MCP、またはHost・state・Viewの接続を確認する       | [MCP通信](../apps/api/tests/integration/mcp/remote-server.test.ts)、[画面の失敗状態](../apps/web/tests/integration/WorkReportAppFailure.test.tsx) |
-| component             | Reactの表示とクリックをDOM上で確認する                         | [WorkReportView](../apps/web/tests/component/WorkReportView.test.tsx)                                                                             |
-| architecture-boundary | importの依存方向が責務の境界を越えていないか確認する           | [依存方向の検査](../tests/architecture-boundary.test.ts)                                                                                          |
-| repository-layout     | 実ファイルの配置とCode Guideの案内が一致するか確認する         | [配置の検査](../tests/repository-layout.test.ts)                                                                                                  |
-| e2e                   | Playwrightの実ブラウザで表示・操作・画面幅による違いを確認する | [Work Reportの表示](../apps/web/tests/e2e/work-report.spec.ts)                                                                                    |
+| 種類                  | 主に確認すること                                               | 読む例                                                                                                                                                                                                                                                                    |
+| --------------------- | -------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| unit（単体）          | 関数やSchemaを直接呼び、条件と返却値を確認する                 | [Handler](https://github.com/daichitk1/work-report-mcp-example/blob/main/apps/api/tests/unit/work-report/handle-tool-call.test.ts)、[Contract](https://github.com/daichitk1/work-report-mcp-example/blob/main/packages/contracts/tests/work-report.test.ts)               |
+| integration（結合）   | HTTP・認可・MCP、またはHost・state・Viewの接続を確認する       | [MCP通信](https://github.com/daichitk1/work-report-mcp-example/blob/main/apps/api/tests/integration/mcp/remote-server.test.ts)、[画面の失敗状態](https://github.com/daichitk1/work-report-mcp-example/blob/main/apps/web/tests/integration/WorkReportAppFailure.test.tsx) |
+| component             | Reactの表示とクリックをDOM上で確認する                         | [WorkReportView](https://github.com/daichitk1/work-report-mcp-example/blob/main/apps/web/tests/component/WorkReportView.test.tsx)                                                                                                                                         |
+| architecture-boundary | importの依存方向が責務の境界を越えていないか確認する           | [依存方向の検査](https://github.com/daichitk1/work-report-mcp-example/blob/main/tests/architecture-boundary.test.ts)                                                                                                                                                      |
+| repository-layout     | 実ファイルの配置とCode Guideの案内が一致するか確認する         | [配置の検査](https://github.com/daichitk1/work-report-mcp-example/blob/main/tests/repository-layout.test.ts)                                                                                                                                                              |
+| e2e                   | Playwrightの実ブラウザで表示・操作・画面幅による違いを確認する | [Work Reportの表示](https://github.com/daichitk1/work-report-mcp-example/blob/main/apps/web/tests/e2e/work-report.spec.ts)                                                                                                                                                |
 
 このリポジトリのUI E2EではHostをFakeへ置き換え、受信後の本番UI経路を通します。MCPのHTTP結合テストでも認可関数を差し替えます。それぞれの対象範囲を読むことで、実Auth0・ChatGPTまで接続した確認と区別できます。
 
