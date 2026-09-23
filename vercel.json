@@ -1,0 +1,24 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "installCommand": "pnpm install --frozen-lockfile",
+  "buildCommand": "pnpm --filter @work-report-mcp/web build",
+  "outputDirectory": "public",
+  "functions": {
+    "api/index.ts": {
+      "includeFiles": "{apps/web/dist/**,apps/api/src/**,apps/api/package.json,packages/contracts/src/**,packages/contracts/package.json}",
+      "maxDuration": 30
+    }
+  },
+  "env": {
+    "WORK_REPORT_UI_HTML_PATH": "apps/web/dist/index.html"
+  },
+  "rewrites": [
+    { "source": "/.well-known/oauth-protected-resource", "destination": "/api/index" },
+    { "source": "/.well-known/oauth-protected-resource/mcp", "destination": "/api/index" },
+    { "source": "/mcp", "destination": "/api/index" },
+    { "source": "/health", "destination": "/api/index" }
+  ],
+  "git": {
+    "deploymentEnabled": false
+  }
+}

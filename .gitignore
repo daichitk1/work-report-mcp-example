@@ -1,0 +1,50 @@
+# Dependencies
+node_modules/
+**/node_modules/
+.pnpm-store/
+
+# Build and tool output
+dist/
+**/dist/
+build/
+**/build/
+coverage/
+**/coverage/
+*.tsbuildinfo
+.vite/
+**/.vite/
+.cache/
+**/.cache/
+
+# Environment and credentials
+.env
+.env.*
+!.env.example
+.envrc
+.dev.vars
+*.key
+*.pem
+*.p12
+*.pfx
+credentials*.json
+service-account*.json
+
+# Test artifacts
+playwright-report/
+test-results/
+blob-report/
+playwright/.auth/
+**/storage-state*.json
+
+# Local editor / OS state
+.idea/
+.history/
+*.log
+*.swp
+*.swo
+*~
+.DS_Store
+Thumbs.db
+
+# Deployment metadata
+.vercel/

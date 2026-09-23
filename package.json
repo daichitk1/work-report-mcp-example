@@ -1,0 +1,34 @@
+{
+  "name": "work-report-mcp",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "packageManager": "pnpm@11.20.0",
+  "engines": {
+    "node": ">=22.18.0"
+  },
+  "scripts": {
+    "dev:mcp-server": "pnpm --filter @work-report-mcp/api dev",
+    "dev:mcp-app": "pnpm --filter @work-report-mcp/web dev",
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
+    "lint": "markdownlint-cli2",
+    "typecheck": "tsc -p tsconfig.json --noEmit && pnpm -r --if-present typecheck",
+    "test:unit": "pnpm -r --if-present test:unit",
+    "test:repo": "node --test \"tests/**/*.test.ts\"",
+    "test:e2e": "pnpm --filter @work-report-mcp/web test:e2e",
+    "test:visual": "pnpm --filter @work-report-mcp/web test:visual",
+    "build": "pnpm --filter @work-report-mcp/contracts --filter @work-report-mcp/api --filter @work-report-mcp/web --if-present build",
+    "check:fast": "pnpm lint && pnpm format:check && pnpm typecheck && pnpm test:unit && pnpm test:repo",
+    "check": "pnpm check:fast && pnpm build"
+  },
+  "dependencies": {
+    "@work-report-mcp/api": "workspace:*"
+  },
+  "devDependencies": {
+    "@types/node": "22.20.1",
+    "markdownlint-cli2": "0.23.2",
+    "prettier": "3.9.6",
+    "typescript": "7.0.2"
+  }
+}

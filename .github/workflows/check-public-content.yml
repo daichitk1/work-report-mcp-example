@@ -1,0 +1,25 @@
+name: Check public content
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      - name: Check excluded documents and references
+        run: |
+          if git ls-files | grep -Ei '(^|/)(adr|architecture-decision-records)(/|[-.]|$)'; then
+            echo "::error::Internal decision records are included."
+            exit 1
+          fi
+          if git grep -n -i -w 'ADR' -- . ':!.github/workflows/check-public-content.yml'; then
+            echo "::error::Reference to excluded decision records found."
+            exit 1
+          fi
