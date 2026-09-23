@@ -164,7 +164,7 @@ GitHub Releaseの作成は必須ではありません。
 - [Security Boundaries](docs/security/boundaries.md)
 - [Security Policy](SECURITY.md)
 
-ドキュメントサイトは `pnpm docs:build` で生成し、main更新時にGitHub ActionsからPagesへ配信します。リポジトリの **Settings → Pages → Build and deployment → Source** は **GitHub Actions** を選択してください。Pagesは仕様文書用で、MCP Serverの配信先ではありません。
+ドキュメントサイトは `pnpm docs:build` で生成し、mainのドキュメント関連の変更時にGitHub ActionsからPagesへ配信します。リポジトリの **Settings → Pages → Build and deployment → Source** は **GitHub Actions** を選択してください。Pagesは仕様文書用で、MCP Serverの配信先ではありません。
 
 ## 対象外
 
