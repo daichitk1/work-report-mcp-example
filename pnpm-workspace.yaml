@@ -1,0 +1,10 @@
+packages:
+  - apps/*
+  - packages/*
+
+strictPeerDependencies: false
+strictDepBuilds: false
+linkWorkspacePackages: true
+
+allowBuilds:
+  esbuild: true

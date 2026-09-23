@@ -1,0 +1,15 @@
+/*
+!apps
+!packages
+!api
+!public
+
+!package.json
+!pnpm-lock.yaml
+!pnpm-workspace.yaml
+!.npmrc
+!.nvmrc
+
+!tsconfig.base.json
+!tsconfig.json
+!vercel.json
