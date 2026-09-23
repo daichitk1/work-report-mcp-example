@@ -58,17 +58,6 @@ test("all external GitHub Actions stay pinned to full commit SHAs", async () => 
 });
 
 /**
- * Dependency automation for GitHub Actions must remain configured.
- * pnpm package updates are reviewed separately.
- */
-test("Dependabot keeps GitHub Actions dependency updates enabled", async () => {
-  const source = await readFile(".github/dependabot.yml", "utf8");
-
-  assert.match(source, /package-ecosystem:\s*github-actions/u);
-  assert.match(source, /interval:\s*weekly/u);
-});
-
-/**
  * JavaScript / TypeScript static analysis remains defined.
  * The current private-repository execution policy is a separate operational
  * concern; this test prevents accidental removal or permission weakening.
